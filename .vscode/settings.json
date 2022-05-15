@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./yahoo-finance-1.4.0"
+    ]
+}

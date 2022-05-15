@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block 'content' %}
+<style>
+.container{
+    margin-top:120px;
+    margin-bottom:250px;
+}
+</style>
+
+<form action='/stockDetails/' method='post'>
+    {%  csrf_token %}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-4">
+<select class="form-select form-select-lg" multiple aria-label="multiple select example" name="stocks">
+    <option selected>Select One And Submit</option>
+    {% for i in tickers %}
+    <option value="{{i}}" name="stocks">{{i}}</option>
+    {% endfor %}
+  </select>
+  <div><input type="submit" class="btn btn-primary btn-lg" Value="Submit"></div>
+</div>
+</div>
+</div>
+</form>
+{% endblock 'content' %}

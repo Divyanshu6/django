@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block 'content' %}
+<html>
+	<head>
+		<style>
+            .content{
+                margin-top:80px;
+                margin-bottom:100px;
+            }
+
+            div.stocks{
+                border:1px solid gray;
+                text-color:gray;
+                margin:5px;
+                padding:10px;
+            }
+
+			h1 {
+				color:Black;
+			}
+			div.gfg {
+				padding:5px;
+				width: 500px;
+				height: 200px;
+				overflow: auto;
+				text-align:justify;
+            }
+              .active{
+                color: red;
+              }
+
+              li{
+                  list-style:none;
+              }
+		</style>
+	</head>
+	<body>
+		<center>
+            <div class='content'>
+		<h1>Stock List</h1>
+		<div class="gfg">
+            <ul id="list">
+                <div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>
+<div class='stocks' ><li>TCS</li></div>
+<div class='stocks' ><li>CDSL</li></div>
+<div class='stocks' ><li>GLENMARK LIFE</li></div>                  
+            </ul>
+		</div>
+    </div>
+		</center>
+        {% comment %} <script>
+            var ul = document.getElementById("list");
+        
+        var listItems = ul.getElementsByTagName("li");
+        
+        for(li of  listItems){
+          li.addEventListener('click', function(){
+            if(this.classList.contains('active')){
+              this.classList.remove("active");
+            } else {
+              this.classList.add("active");
+            }
+          })
+        }
+        </script> {% endcomment %}
+	</body>
+</html>					
+{% endblock 'content' %}

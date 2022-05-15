@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block 'content' %}
+{% load customTag %}
+<style>
+    .container{
+        margin-top:120px;
+        margin-bottom:250px;
+        height:225px;
+        overflow:hidden;
+         overflow-y:scroll;
+    }
+    .red{
+      color:red;
+    }
+    .green{
+      color:green;
+    }
+</style>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">CurrentPrice</th>
+        <th scope="col">PreviousClose</th>
+        <th scope="col">ChangeInPrice</th>
+        <th scope="col">FiftyTwoWeekLow</th>
+        <th scope="col">FiftyTwoWeekHigh</th>
+        <th scope="col">MarketVolume</th>
+        <th scope="col">MarketCap</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i,j in data.items %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{j | getElement:'symbol'}}</td>
+        <td id='currentClose{{i}}'>{{j | getElement:'regularMarketPrice'}}</td>
+        <td id='previousClose{{i}}'>{{j | getElement:'regularMarketPreviousClose'}}</td>
+        <td id={{i}}></td>
+        <td>{{j | getElement:'fiftyTwoWeekLow'}}</td>
+        <td>{{j | getElement:'fiftyTwoWeekHigh'}}</td>
+        <td>{{j | getElement:'regularMarketVolume'}}</td>
+        <td>{{j | getElement:'marketCap'}}</td>
+      </tr>
+      <script>
+        var currentClose = document.getElementById('currentClose'+'{{i}}').innerHTML;
+        var previousClose = document.getElementById('previousClose'+'{{i}}').innerHTML;
+        value=currentClose - previousClose;
+        value=Number(value).toFixed(4)
+        if(currentClose - previousClose > 0){
+          document.getElementById('{{i}}').className="green";
+        }else if(currentClose - previousClose < 0){
+          document.getElementById('{{i}}').className="red";
+        }else{
+          document.getElementById('{{i}}').className="";
+        }
+        if (value > 0){
+          value= "+"+value
+        }
+        document.getElementById('{{i}}').innerHTML=value;
+      </script>
+  {% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+{% endblock 'content' %}

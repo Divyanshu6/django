@@ -1,4 +1,6 @@
-<h1>Please Register yourself</h1>
+{% extends 'base.html' %}
+{% block 'content' %}
+<h1>Please Login</h1>
 <form action='/login/' method='post'>
     {% csrf_token %}
     <table>  
@@ -7,3 +9,4 @@
     <br>
     <input type="submit" value="Submit" style="margin-left:40px;">
 </form>
+{% endblock 'content' %}

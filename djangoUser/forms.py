@@ -1,33 +1,28 @@
 from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
 from djangoUser.models import extendedUser
 from django import forms
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 def startsWith(name):
     for i in name:
         if i in '1234567890':
-            raise forms.ValidationError("Name cannot have numbers")
+            raise forms.ValidationError(_("Name cannot have numbers"))
 
-class registrationForm(UserCreationForm):
-    city=(
-      ('Allahabad','Allahabad'),
-      ('Patna','Patna'),
-      ('Noida','Noida'),
-      ('Ajamgadh','Ajamgadh'),
-      ('Bhubneshwar','Bhubneshwar'),
-    )
-    GENDER_CHOICES = (
-   ('Male', 'M'),
-   ('Female', 'F'),
-)
+class registrationForm(forms.ModelForm):   
     username=forms.CharField(validators =[startsWith])
-    age=forms.CharField()
-    address=forms.ChoiceField(choices=city)
-    gender=forms.ChoiceField(choices=GENDER_CHOICES,widget=forms.RadioSelect())
-    password1=forms.CharField(label='Password')
+    password=forms.CharField(label='Password')
     password2=forms.CharField(label='Confirm Password')
     class Meta:
         model=extendedUser
-        fields=['username','first_name','last_name','email']
+        fields=['username','first_name','last_name','email','age','address','gender']
+
+    # def clean_username(self):
+    #     username=self.cleaned_data['username']
+    #     for i in username:
+    #         if i in '1234567890':
+    #             raise forms.ValidationError(_("Name cannot have numbers"))
+    # while using this we dont need to defing validators = function in charfield
 
 class loginForm(AuthenticationForm):
     username=forms.CharField(label='username')
